@@ -1,0 +1,58 @@
+{% extends "admin1/admin_base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News and Events List</title>
+</head>
+<body>
+    <br>
+    <h2 class="mx-5">Our Staffs</h2>
+
+
+    <a href="{% url 'add_staffs' %}"><button class="btn btn-primary mx-5 my-5">Register New Staff</button> </a>
+
+    <div class="col-12">
+        <div class="bg-light rounded h-100 p-4">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Teaching Staff</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in staffs %}
+                        <tr>
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.name}}</td>
+                            <td>{% if item.teaching_staff %}
+                                &#x2705; <!-- Green tick symbol -->
+                            {% else %}
+                                &#x274C; <!-- Cross symbol -->
+                            {% endif %}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{ item.phone }}</td>
+                            <td>
+                                <a href="{% url 'edit_staffs' item.pk %}">Edit</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_staffs' item.pk %}">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

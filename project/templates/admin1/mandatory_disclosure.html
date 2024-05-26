@@ -1,0 +1,34 @@
+{% extends "admin1/admin_base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>md</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2>General Information</h2>
+        <br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ general_form|crispy }} <br>
+        <h2>Documents and Information</h2>
+        {{ documents_form|crispy }}<br>
+        <h2>Results and Academics</h2>
+        {{ academics_form|crispy }}
+        <br><h2>Staff(Teaching)</h2>
+        {{ statistics_form|crispy }}<br>
+        <h2>School Infrastructure</h2>
+        {{ infrastructure_form|crispy }} <br>
+        <button type="submit" class="btn btn-primary" style="width: 60%;height: 50px;">Update</button>
+    </form>
+
+    </div>
+    
+</body>
+</html>
+{% endblock %}

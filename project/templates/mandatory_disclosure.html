@@ -1,0 +1,432 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image:url('{% static 'images/video.png' %}');>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <h1 class="text-white" style="font-weight: 900;font-size: 60px;">MANDATORY DISCLOSURE</h1>
+      </div>
+    </div>
+  </section>
+<br>
+
+<div class="container">
+    <h5 class="mx-3">A. GENERAL INFORMATION</h5>
+<br>
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded p-4">
+        <dl class="row mb-0">
+            <dt class="col-sm-4">Name of the School:</dt>
+            <dd class="col-sm-8">{{content.name_of_school}}</dd>
+
+            <dt class="col-sm-4">Affiliation No. :</dt>
+            <dd class="col-sm-8">{{content.affiliation_no}}</dd>
+
+            <dt class="col-sm-4">School Code:</dt>
+            <dd class="col-sm-8">{{content.school_code}}</dd>
+
+            <dt class="col-sm-4 text-truncate">Complete Address with Pincode:</dt>
+            <dd class="col-sm-8">{{content.complete_address}}</dd>
+
+            <dt class="col-sm-4">Principal Name and Qualification:</dt>
+            <dd class="col-sm-8">{{content.principal_name_and_qualification}}</dd>
+
+            <dt class="col-sm-4">School Email id:</dt>
+            <dd class="col-sm-8">{{content.school_email_id}}</dd>
+
+            <dt class="col-sm-4">Contact Details:</dt>
+            <dd class="col-sm-8">{{content.contact_details}}</dd>
+
+        </dl>
+    </div>
+</div>
+<br>
+<h5 class="mx-3">B. DOCUMENTS AND INFORMATION</h5> <br>
+<div class="col-12">
+    <div class="bg-light rounded p-4">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">SL NO.</th>
+                        <th scope="col">DOCUMENTS/INFORMATION</th>
+                        <th scope="col">UPLOAD DOCUMENTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>	
+                            Copies of Affiliation/Upgradation letter and recent
+                            Extension of Affiliation, if any</td>
+                        <td>{% if content.copies_od_affiliation_letter %}
+                            &#x2705; <!-- Green tick symbol -->
+                        {% else %}
+                            &#x274C; <!-- Cross symbol -->
+                        {% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Copies of Societies/Trust/Company Registration/
+                            Renewal Certificate, as applicable</td>
+                        <td>
+                            {% if content.copies_of_societies_registration_certificate %}
+                                <a href="{{ content.copies_of_societies_registration_certificate.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Copy of No Objection Certificate (NOC) issued, if applicable,
+                            by the State Govt./UT</td>
+                        <td>
+                            {% if content.copy_of_noc_issued_by_state_govt %}
+                                <a href="{{ content.copy_of_noc_issued_by_state_govt.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Copies of Recognition Certificate</td>
+                        <td>
+                            {% if content.copies_of_recognition_certificate %}
+                                <a href="{{ content.copies_of_recognition_certificate.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Copy of valid Building Safety Certificate</td>
+                        <td>
+                            {% if content.copy_of_valid_building_safety_certificate %}
+                                <a href="{{ content.copy_of_valid_building_safety_certificate.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>Copy of valid Fire Safety Certificate issued by the Competent Authority</td>
+                        <td>
+                            {% if content.copy_of_valid_fire_safety_certificate %}
+                                <a href="{{ copy_of_valid_fire_safety_certificate.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>Copy of the DOE Certificate submitted by the school for
+                            Affiliation/Upgradation/Extension
+                            of Affiliation or self-certification by school</td>
+                        <td>
+                            {% if content.copy_of_deo_certificate %}
+                                <a href="{{ content.copy_of_deo_certificate.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>	
+                            Copies of Valid Safe Drinking Water Certificate and Valid Health and Sanitation Certificates</td>
+                        <td>
+                            {% if content.copies_of_valid_water_health_sanitation_certificates %}
+                                <a href="{{ content.copies_of_valid_water_health_sanitation_certificates.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>	
+                            Copies of Self Affidavit</td>
+                        <td>
+                            
+                        No file available
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div><br>
+
+<h5 class="mx-3">C. RESULTS AND ACADEMICS</h5> <br>
+
+<div class="col-12">
+    <div class="bg-light rounded p-4">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">SL NO.</th>
+                        <th scope="col">DOCUMENTS/INFORMATION</th>
+                        <th scope="col">UPLOAD DOCUMENTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>	
+                            Fee structure of the school</td>
+                        <td>
+                            {% if content.fee_structure_of_the_school %}
+                                <a href="{{ content.fee_structure_of_the_school.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>	
+                            Annual Academic Calendar</td>
+                        <td>
+                            {% if content.annual_academic_calendar %}
+                                <a href="{{ content.annual_academic_calendar.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>
+                            	
+List of School Management Committee (SMC)	
+                        </td>
+                        <td>
+                            {% if content.list_of_school_management_committee %}
+                                <a href="{{ content.list_of_school_management_committee.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>	
+                        	List of Parent Teacher Association Member</td>
+                        <td>
+                            {% if content.list_of_parents_teachers_association_members %}
+                                <a href="{{ content.list_of_parents_teachers_association_members.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>	
+                        	Results of the board examination</td>
+                        <td>
+                            {% if content.last_three_years_board_exam_results %}
+                                <a href="{{ content.last_three_years_board_exam_results.url }}" download>Download File</a>
+                            {% else %}
+                                No file available
+                            {% endif %}
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div><br>
+
+<h5 class="mx-3">D. STAFF [TEACHING]</h5> <br>
+
+<div class="col-12">
+    <div class="bg-light rounded p-4">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">SL NO.</th>
+                        <th scope="col">INFORMATION</th>
+                        <th scope="col">DETAILS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>	
+                        	Principal</td>
+                        <td>
+                            {{content.principal}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>	
+                        	Number of Teachers</td>
+                        <td>
+                            {{content.total_no_of_teachers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>	
+                        	PGT</td>
+                        <td>
+                            {{content.pgt_teachers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>	
+                        	TGT</td>
+                        <td>
+                            {{content.tgt_teachers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>	
+                        	PRT</td>
+                        <td>
+                            {{content.prt_teachers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>	
+                        	Teachers Section Ratio</td>
+                        <td>
+                            {{content.teachers_section_ratio}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>	
+                        	Special Educator</td>
+                        <td>
+                            {{content.details_of_special_educator}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>	
+                        	Counsellor and Wellness Teacher</td>
+                        <td>
+                            {{content.details_of_counsellor_and_wellness_teacher}}
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> <br>
+
+<h5 class="mx-3">E. SCHOOL INFRASTRUCTURE</h5><br>
+
+<div class="col-12">
+    <div class="bg-light rounded p-4">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">SL NO.</th>
+                        <th scope="col">INFORMATION</th>
+                        <th scope="col">DETAILS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>	
+                        	Total Campus area of the school (in sq/mtr)</td>
+                        <td>
+                            {{content.total_campus_area}}  square mtr.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>	
+                        	Number of classrooms</td>
+                        <td>
+                            {{content.no_and_size_of_classrooms}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>	
+                        	Number of Laboratories including computer labs</td>
+                        <td>
+                            {{content.no_and_size_of_laboratories}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>	
+                        		Internet facility </td>
+                        <td>
+                            {% if content.internet_facility %}
+                            &#x2705; <!-- Green tick symbol -->
+                        {% else %}
+                            &#x274C; <!-- Cross symbol -->
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>	
+                        			Number of Girls toilets </td>
+                        <td>
+                            {{content.no_of_girls_toilets}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>	
+                        			Number of Boys toilets </td>
+                        <td>
+                            {{content.no_of_boys_toilets}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>	
+                        				Link of youtube video of the inspection of school covering the infrastructure of the school </td>
+                        <td>
+                            {{content.youtube_link_of_inspection_video}}
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock content %}

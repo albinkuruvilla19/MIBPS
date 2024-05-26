@@ -1,0 +1,26 @@
+{% extends "admin1/admin_base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Staff Details</title>
+</head>
+<body>
+    <div class="container">
+
+        <h2>Edit Staff Details</h2>
+        <br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        <button type="submit">Update</button>
+    </form>
+
+    </div>
+    
+</body>
+</html>
+{% endblock %}
