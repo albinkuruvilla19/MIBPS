@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 <section class="hero-wrap hero-wrap-2" style="background-image:url('{% static 'images/video.png' %}');>
     <div class="overlay"></div>
@@ -17,7 +19,24 @@
     <div class="row d-flex">
       <div class="col-md-12 wrap-about py-5 pr-md-4 ftco-animate">
         <h2 class="mb-4">Mar Ivanios Bethany Public School, Chettukuzhy</h2>
-        <p>Mar Ivanios School had a very humble beginning in 2003 with a fifty of tiny tots in a room attached to Bethany Convent, Chettukuzhy, Idukki. It is run by the sisters of the Imitation of Christ, the Religious Community founded by the late Mar Ivanios of Bethany. The school management eanestly desires and works to create a family atmosphere in the human society without any distinction of caste and creed. The school has a great vision. We are guided by sublime principles of genuine education, co-education, comprehensive curriculum, modern approaches in education and development of the individual, family and society etc.. are the basic thrust of the school.</p>
+        <p>{{about_us.about_us}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftc-no-pb">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col-md-6 wrap-about py-5 pr-md-4 ftco-animate">
+    <h2 class="mb-4 text-center">
+        <i class="fas fa-flag"></i> Our Mission
+    </h2>
+    <p>{{about_us.our_mission}}</p>
+</div>
+      <div class="col-md-6 wrap-about py-5 pr-md-4 ftco-animate">
+        <h2 class="mb-4 text-center"><i class="fas fa-eye"></i> Our Vision</h2>
+        <p>{{about_us.our_vision}}</p>
       </div>
     </div>
   </div>

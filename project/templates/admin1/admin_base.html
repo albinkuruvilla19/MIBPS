@@ -37,7 +37,7 @@
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative mx-4">
-                <img class="rounded-circle" src="{{info.logo.url}}" alt="" style="width: 40px; height: 40px;">
+                <img class="rounded-circle" src="{{school_info.logo.url}}" alt="" style="width: 40px; height: 40px;">
                 
             </div>
             <div class="ms-3">
@@ -52,33 +52,30 @@
             <a href="{% url 'news_list' %}" class="nav-item nav-link {% if request.path == '/news/' %}active{% endif %}">
                 <i class="fa fa-th me-2"></i>News and Events
             </a>
-            <a href="widget.html" class="nav-item nav-link {% if request.path == '/student_details/' %}active{% endif %}">
-                <i class="fa fa-th me-2"></i>Student Details
-            </a>
-            <a href="{% url 'staffs_list' %}" class="nav-item nav-link {% if request.path == '/staffs/' %}active{% endif %}">
-                <i class="fa fa-th me-2"></i>Staffs
-            </a>
-            <a href="{% url 'manage' %}" class="nav-item nav-link {% if request.path == '/manage_classes/' %}active{% endif %}">
-                <i class="fa fa-th me-2"></i>Manage Classes
-            </a>
-            <a href="{% url 'school_info' %}" class="nav-item nav-link {% if request.path == '/forms/' %}active{% endif %}">
+            <a href="{% url 'school_info' %}" class="nav-item nav-link {% if request.path == '/school_info/' %}active{% endif %}">
                 <i class="fa fa-keyboard me-2"></i>Basic School Info
             </a>
-            <a href="{% url 'mandatory_disclosure_update' %}" class="nav-item nav-link {% if request.path == '/tables/' %}active{% endif %}">
+            <a href="{% url 'about_school' %}" class="nav-item nav-link {% if request.path == '/admin1/about_school/' %}active{% endif %}">
+                <i class="fa fa-table me-2"></i>About School
+            </a>
+            <a href="{% url 'edit_management' %}" class="nav-item nav-link {% if request.path == '/admin1/edit_management/' %}active{% endif %}">
+                <i class="fa fa-chart-bar me-2"></i>Management
+            </a>
+            <a href="{% url 'staffs_list' %}" class="nav-item nav-link {% if request.path == '/staffs_list/' %}active{% endif %}">
+                <i class="fa fa-th me-2"></i>Staffs
+            </a>
+            <a href="{% url 'mandatory_disclosure_update' %}" class="nav-item nav-link {% if request.path == '/mandatory_disclosure_update/' %}active{% endif %}">
                 <i class="fa fa-table me-2"></i>Disclosures
             </a>
-            <a href="chart.html" class="nav-item nav-link {% if request.path == '/charts/' %}active{% endif %}">
-                <i class="fa fa-chart-bar me-2"></i>Charts
+            <a href="{% url 'facility_list' %}" class="nav-item nav-link {% if request.path == '/facility_list/' %}active{% endif %}">
+                <i class="fa fa-chart-bar me-2"></i>Our Facilities
             </a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="signin.html" class="dropdown-item">Sign In</a>
-                    <a href="signup.html" class="dropdown-item">Sign Up</a>
-                    <a href="404.html" class="dropdown-item">404 Error</a>
-                    <a href="blank.html" class="dropdown-item">Blank Page</a>
-                </div>
-            </div>
+            <a href="{% url 'edit_banner' %}" class="nav-item nav-link {% if request.path == '/edit_banner/' %}active{% endif %}">
+                <i class="fa fa-table me-2"></i>Edit Banner
+            </a>
+            <a href="{% url 'update_gallery' %}" class="nav-item nav-link {% if request.path == '/update_gallery/' %}active{% endif %}">
+                <i class="fa fa-chart-bar me-2"></i>Update Gallery
+            </a>
         </div>
     </nav>
 </div>
@@ -97,13 +94,11 @@
         
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                    <img class="rounded-circle me-lg-2" src="{{info.logo.url}}" alt="" style="width: 40px; height: 40px;">
+                    <img class="rounded-circle me-lg-2" src="{{school_info.logo.url}}" alt="" style="width: 40px; height: 40px;">
                     <span class="d-none d-lg-inline-flex">Admin</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">My Profile</a>
-                    <a href="#" class="dropdown-item">Settings</a>
-                    <a href="#" class="dropdown-item">Log Out</a>
+                    <a href="{% url "logout" %}" class="dropdown-item">Log Out</a>
                 </div>
             </div>
         </div>
@@ -119,6 +114,8 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
     <script src="{% static 'lib/chart/chart.min.js' %}"></script>
     <script src="{% static 'lib/easing/easing.min.js' %}"></script>
     <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>

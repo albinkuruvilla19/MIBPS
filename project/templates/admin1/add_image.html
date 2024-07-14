@@ -1,0 +1,22 @@
+{% extends "admin1/admin_base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Photos</title>
+</head>
+<body>
+    <h2 class="mx-5 my-5">Add New Photos</h2> 
+    <div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

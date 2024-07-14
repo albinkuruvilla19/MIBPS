@@ -1,603 +1,609 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Mar Ivanios Bethany Public School</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Welcome to Mar Ivanios Bethany Public School - Providing quality education with a focus on holistic development."
+    />
+    <meta
+      name="keywords"
+      content="Mar Ivanios Bethany Public School, education, holistic development, quality education, school in Chettukuzhy, Idukki, Kerala"
+    />
+    <meta name="author" content="MIBPS" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Mar Ivanios Bethany Public School" />
+    <meta
+      property="og:description"
+      content="Welcome to Mar Ivanios Bethany Public School - Providing quality education with a focus on holistic development."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.example.com" />
+    <meta
+      property="og:image"
+      content="https://www.example.com/images/og-image.jpg"
+    />
+    <!-- Replace with your actual image URL -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mar Ivanios Bethany Public School" />
+    <meta
+      name="twitter:description"
+      content="Welcome to Mar Ivanios Bethany Public School - Providing quality education with a focus on holistic development."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.example.com/images/twitter-card-image.jpg"
+    />
+    <!-- Replace with your actual image URL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <style>
+      .highlighted-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
+    </style>
+    
   </head>
-    
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url('{% static 'images/img3.jpg' %}');">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
+
+  <section class="home-slider owl-carousel">
+    {% for banner in banners %}
+    <div
+      class="slider-item"
+      style="background-image:url('{{ banner.image.url }}');"
+    >
+      
+      <div class="container">
+        <div
+          class="row no-gutters slider-text align-items-center justify-content-start"
+          data-scrollax-parent="true"
+        >
           <div class="col-md-6 ftco-animate">
-            <h1 class="mb-4">Mar Ivanios Bethany Public School</h1>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
+            <h1 class="mb-4  highlighted-text" style="margin-top: -70px;"> Mar Ivanios Bethany Public School</h1>
+            <p class="highlighted-text">
+              "EDUCATION IS TO GROW IN VALUES"
+            </p>
+            <p>
+              <a href="#" class="btn btn-dark px-4 py-3 mt-3 bg-darken">Contact Us</a>
+            </p>
           </div>
         </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <div class="row py-2" style="width: 100%;">
+    <!--Breaking box-->
+    <div class="col-1 col-md-3 col-lg-2 py-1 pr-md-0 mb-md-1">
+        <div class="d-inline-block d-md-block bg-darken text-white text-center breaking-caret py-1 px-2">
+            <span class="fas fa-bolt" title="Breaking News"></span>
+            <span class="d-none d-md-inline-block">News & Events</span>
+        </div>
+    </div>
+    <!--Breaking content-->
+    <div class="col-11 col-md-9 col-lg-10 pl-1 pl-md-2">
+        <div class="breaking-box pt-2 pb-1">
+            <!--marque-->
+            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseleave="this.start();">
+              {% for news in news %}
+              <a class="h6 font-weight-light" href=""><span class="position-relative mx-2 badge badge-primary rounded-0 bg-darken">New</span> {{news.title}}</a>
+              {% endfor %}
+              
+            </marquee>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section ftco-no-pt ftc-no-pb">
+  <div class="container">
+      <div class="row d-flex">
+          <div class="col-md-12 wrap-about py-5 pr-md-4 ftco-animate">
+              <h2 class="mb-4">What We Offer</h2>
+              <p>
+                "Uncover a world of educational opportunities tailored to inspire and engage every student. Our programs are designed to nurture academic excellence and holistic development."
+              </p>
+              <div class="row mt-5">
+                  <div class="col-lg-6">
+                      <div class="services-2 d-flex">
+                          <div class="icon mt-2 d-flex justify-content-center align-items-center bg-darken" style="border-radius: 5px;">
+                              <span class="flaticon-security" style="font-weight: bolder;"></span>
+                          </div>
+                          <div class="text pl-3">
+                              <h3>Safety & Security</h3>
+                              <p>
+                                Our safety measures ensure a secure environment for students and peace of mind for parents.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="services-2 d-flex">
+                          <div class="icon mt-2 d-flex justify-content-center align-items-center bg-darken" style="border-radius: 5px;">
+                              <span class="flaticon-reading"></span>
+                          </div>
+                          <div class="text pl-3">
+                              <h3>Regular Classes</h3>
+                              <p>
+                                Our regular classes provide structured learning experiences that empower student potential.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="services-2 d-flex">
+                          <div class="icon mt-2 d-flex justify-content-center align-items-center bg-darken" style="border-radius: 5px;">
+                              <span class="flaticon-diploma"></span>
+                          </div>
+                          <div class="text pl-3">
+                              <h3>Certified Teachers</h3>
+                              <p>
+                                Our certified teachers deliver expert instruction, fostering a supportive and inspiring learning environment.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="services-2 d-flex">
+                          <div class="icon mt-2 d-flex justify-content-center align-items-center bg-darken" style="border-radius: 5px;">
+                              <span class="flaticon-education"></span>
+                          </div>
+                          <div class="text pl-3">
+                              <h3>Sufficient Classrooms</h3>
+                              <p>
+                                Our classrooms are designed for comfort and optimal learning.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="services-2 d-flex">
+                          <div class="icon mt-2 d-flex justify-content-center align-items-center bg-darken" style="border-radius: 5px;">
+                              <span class="flaticon-jigsaw"></span>
+                          </div>
+                          <div class="text pl-3">
+                              <h3>Counseling Services</h3>
+                              <p>
+                                Our counseling services offer support for academic and personal challenges.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="services-2 d-flex">
+                          <div class="icon mt-2 d-flex justify-content-center align-items-center bg-darken" style="border-radius: 5px;">
+                              <span class="flaticon-kids"></span>
+                          </div>
+                          <div class="text pl-3">
+                              <h3>Sports Facilities</h3>
+                              <p>
+                                Our sports facilities encourage teamwork and fitness.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+  <section
+    class="ftco-section ftco-counter img"
+    id="section-counter"
+    style="background-image: url('{% static 'images/video.png' %}');"
+    data-stellar-background-ratio="0.5"
+  >
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-2 d-flex">
+        <div class="col-md-6 align-items-stretch d-flex">
+          <div
+            class="img img-video d-flex align-items-center"
+            style="background-image: url('{% static 'images/video.png' %}');"
+          ></div>
+        </div>
+        <div
+          class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5"
+        >
+          <h2 class="mb-4">Mar Ivanios Bethany Public School</h2>
+          <p>
+            Mar Ivanios School had a very humble beginning in 2003 with a fifty of tiny tots in a room attached to Bethany Convent, Chettukuzhy, Idukki. It is run by the sisters of the Imitation of Christ, the Religious Community founded by the late Mar Ivanios of Bethany. The school management eanestly desires and works to create a family atmosphere in the human society without any distinction of caste and creed. The school has a great vision. We are guided by sublime principles of genuine education, co-education, comprehensive curriculum, modern approaches in education and development of the individual, family and society etc.. are the basic thrust of the school.
+          </p>
+          
         </div>
       </div>
 
-	  <div class="slider-item" style="background-image:url('{% static 'images/video1.png' %}');">
-		<div class="overlay"></div>
-	  <div class="container">
-		<div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
-		<div class="col-md-6 ftco-animate">
-		  <h1 class="mb-4">Mar Ivanios Bethany Public School</h1>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		  <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
-		</div>
-	  </div>
-	  </div>
-	</div>
-
-
-	  <div class="slider-item" style="background-image:url('{% static 'images/img1.jpg' %}');">
-		<div class="overlay"></div>
-	  <div class="container">
-		<div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
-		<div class="col-md-6 ftco-animate">
-		  <h1 class="mb-4">Mar Ivanios Bethany Public School</h1>
-		  <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		  <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>
-		</div>
-	  </div>
-	  </div>
-	</div>
-    </section> <br>
-
-    <section class="ftco-services ftco-no-pb">
-			<div class="container-wrap">
-				<div class="row no-gutters">
-          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-primary">
-            <div class="media block-6 d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-teacher"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Certified Teachers</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken">
-            <div class="media block-6 d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-reading"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Special Education</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-primary">
-            <div class="media block-6 d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-books"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Book &amp; Library</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken">
-            <div class="media block-6 d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diploma"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Sport Clubs</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-			</div>
-		</section>  <br>
-		
-		<section class="ftco-section ftco-no-pt ftc-no-pb">
-			<div class="container">
-				<div class="row d-flex">
-					<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
-						
-						<div class="container mt-5">
-							<h2 style="margin-bottom: 1.5rem; color: #343A40; font-size: 1.75rem; font-weight: 600;">News and Events</h2>
-							<div class="list-group">
-								{% for news in news %}
-							  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" style="transition: transform 0.2s ease, box-shadow 0.2s ease;">
-								<div class="d-flex w-100 justify-content-between">
-								  <h5 class="mb-1" style="font-weight: bold; color: #007BFF;">{{news.title}}</h5>
-								  <small>{{news.published_date}}</small>
-								</div>
-								<p class="mb-1" style="color: #555;">{{news.content1}}</p>
-							  </a>
-							  {% endfor %}
-							  
-							</div>
-						  </div>
-					</div>
-					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
-          	<h2 class="mb-4">What We Offer</h2>
-						<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word.</p>
-						<div class="row mt-5">
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
-									<div class="text pl-3">
-										<h3>Safety First</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
-									<div class="text pl-3">
-										<h3>Regular Classes</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-diploma"></span></div>
-									<div class="text pl-3">
-										<h3>Certified Teachers</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-education"></span></div>
-									<div class="text pl-3">
-										<h3>Sufficient Classrooms</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-jigsaw"></span></div>
-									<div class="text pl-3">
-										<h3>Creative Lessons</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="services-2 d-flex">
-									<div class="icon mt-2 d-flex justify-content-center align-items-center"><span class="flaticon-kids"></span></div>
-									<div class="text pl-3">
-										<h3>Sports Facilities</h3>
-										<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-
-		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url('{% static 'images/video.png' %}');" data-stellar-background-ratio="0.5">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-2 d-flex">
-    			<div class="col-md-6 align-items-stretch d-flex">
-    				<div class="img img-video d-flex align-items-center" style="background-image: url('{% static 'images/video.png' %}');">
-    					
-    				</div>
-    			</div>
-          <div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
-            <h2 class="mb-4">Mar Ivanios Bethany Public School</h2>
-            <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-          </div>
-        </div>	
-    		<div class="row d-md-flex align-items-center justify-content-center">
-    			<div class="col-lg-12">
-    				<div class="row d-md-flex align-items-center">
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		            	<div class="icon"><span class="flaticon-doctor"></span></div>
-		              <div class="text">
-		                <strong class="number" data-number="18">0</strong>
-		                <span>Certified Teachers</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		            	<div class="icon"><span class="flaticon-doctor"></span></div>
-		              <div class="text">
-		                <strong class="number" data-number="401">0</strong>
-		                <span>Students</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		            	<div class="icon"><span class="flaticon-doctor"></span></div>
-		              <div class="text">
-		                <strong class="number" data-number="30">0</strong>
-		                <span>Courses</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		            	<div class="icon"><span class="flaticon-doctor"></span></div>
-		              <div class="text">
-		                <strong class="number" data-number="50">0</strong>
-		                <span>Awards Won</span>
-		              </div>
-		            </div>
-		          </div>
-	          </div>
-          </div>
-        </div>
-    	</div>
-    </section>
-
-		<section class="ftco-section bg-light">
-			<div class="container-fluid px-4">
-			  <div class="row justify-content-center mb-5 pb-2">
-				<div class="col-md-8 text-center heading-section ftco-animate">
-				  <h2 class="mb-4">Certified Teachers</h2>
-				  <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-				</div>
-			  </div>
-			  <div class="row owl-carousel owl-theme">
-				{% for teacher in teachers %}
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					
-				  <div class="staff" style="width: 300px;">
-					<div class="img-wrap d-flex align-items-stretch">
-					  <div class="img align-self-stretch" style="background-image: url('{{ teacher.image.url }}');width: 100%;"></div>
-					</div>
-					<div class="text pt-3 text-center">
-					  <h3>{{ teacher.name }}</h3>
-					  <span class="position mb-2">Teacher</span>
-					</div>
-				  </div>
-				</div>
-				{% endfor %}
-				<div class="col-md-6 col-lg-3 ftco-animate">
-				  <div class="staff" style="width: 300px;">
-					<div class="img-wrap d-flex align-items-stretch">
-					  <div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-2.jpg' %}');width: 100%;"></div>
-					</div>
-					<div class="text pt-3 text-center">
-					  <h3>Mitch Parker</h3>
-					  <span class="position mb-2">English Teacher</span>
-					  
-					</div>
-				  </div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-				  <div class="staff" style="width: 300px;">
-					<div class="img-wrap d-flex align-items-stretch">
-					  <div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-3.jpg' %}');"></div>
-					</div>
-					<div class="text pt-3 text-center">
-					  <h3>Stella Smith</h3>
-					  <span class="position mb-2">Art Teacher</span>
-					  
-					</div>
-				  </div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-				  <div class="staff" style="width: 300px;">
-					<div class="img-wrap d-flex align-items-stretch">
-					  <div class="img align-self-stretch" style="background-image: url('{% static 'images/teacher-4.jpg' %}');"></div>
-					</div>
-					<div class="text pt-3 text-center">
-					  <h3>Monshe Henderson</h3>
-					  <span class="position mb-2">Science Teacher</span>
-					  
-					</div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </section>
-		  
-
-
-    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url('{% static 'images/p.jpg' %}'); background-size:contain; /* or 'contain', or specific values like '100% 100%' */
-	background-position:left; /* or other values like 'top', 'right', etc. */
-	background-repeat: no-repeat; /* or 'repeat', 'repeat-x', 'repeat-y' */
-	background-attachment:fixed;" data-stellar-background-ratio="0.5">
-    	<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row justify-content-end">
-    			<div class="col-md-6 py-5 px-md-5">
-    				<div class="py-md-5">
-		          <div class="heading-section heading-section-white ftco-animate mb-5">
-		            <h2 class="mb-4">Principal's Message</h2>
-		            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-		          </div>
-		          <form action="#" class="appointment-form ftco-animate">
-		    				<div class="d-md-flex">
-			    				<div class="form-group">
-			    					<input type="text" class="form-control" placeholder="First Name">
-			    				</div>
-			    				<div class="form-group ml-md-4">
-			    					<input type="text" class="form-control" placeholder="Last Name">
-			    				</div>
-		    				</div>
-		    				<div class="d-md-flex">
-		    					<div class="form-group">
-			    					<div class="form-field">
-		        					<div class="select-wrap">
-		                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                    <select name="" id="" class="form-control">
-		                    	<option value="">Select Your Course</option>
-		                      <option value="">Art Lesson</option>
-		                      <option value="">Language Lesson</option>
-		                      <option value="">Music Lesson</option>
-		                      <option value="">Sports</option>
-		                      <option value="">Other Services</option>
-		                    </select>
-		                  </div>
-			              </div>
-			    				</div>
-		    					<div class="form-group ml-md-4">
-			    					<input type="text" class="form-control" placeholder="Phone">
-			    				</div>
-		    				</div>
-		    				<div class="d-md-flex">
-		    					<div class="form-group">
-			              <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-			            </div>
-			            <div class="form-group ml-md-4">
-			              <input type="submit" value="Request A Quote" class="btn btn-primary py-3 px-4">
-			            </div>
-		    				</div>
-		    			</form>
-		    		</div>
-    			</div>
-        </div>
-    	</div>
-    </section>
-
-
-		<section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-          <div class="col-md-8 text-center heading-section ftco-animate">
-            <h2 class="mb-4">Student Says About Us</h2>
-            <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
-          </div>
-        </div>
-        <div class="row ftco-animate justify-content-center">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(images/teacher-1.jpg)">
-                  </div>
-                  <div class="text ml-2">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Racky Henderson</p>
-                    <span class="position">Father</span>
-                  </div>
+      <div class="row d-md-flex align-items-center justify-content-center">
+        <div class="col-lg-12">
+          <div class="row d-md-flex align-items-center">
+            <div
+              class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+            >
+              <div class="block-18">
+                <div class="icon"><span class="flaticon-doctor"></span></div>
+                <div class="text">
+                  <strong class="number" data-number="{{ teaching_count }}"
+                    >0</strong
+                  >
+                  <span>Certified Teachers</span>
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(images/teacher-2.jpg)">
-                  </div>
-                  <div class="text ml-2">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Henry Dee</p>
-                    <span class="position">Mother</span>
-                  </div>
+            </div>
+            <div
+              class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+            >
+              <div class="block-18">
+                <div class="icon"><span class="flaticon-doctor"></span></div>
+                <div class="text">
+                  <strong
+                    class="number"
+                    data-number="{{ school_info.total_students }}"
+                    >0</strong
+                  >
+                  <span>Students</span>
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(images/teacher-3.jpg)">
-                  </div>
-                  <div class="text ml-2">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Huff</p>
-                    <span class="position">Mother</span>
-                  </div>
+            </div>
+            <div
+              class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+            >
+              <div class="block-18">
+                <div class="icon"><span class="flaticon-doctor"></span></div>
+                <div class="text">
+                  <strong
+                    class="number"
+                    data-number="{{ school_info.total_classrooms }}"
+                    >0</strong
+                  >
+                  <span>Classrooms</span>
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(images/teacher-4.jpg)">
-                  </div>
-                  <div class="text ml-2">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Rodel Golez</p>
-                    <span class="position">Mother</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url(images/teacher-1.jpg)">
-                  </div>
-                  <div class="text ml-2">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Ken Bosh</p>
-                    <span class="position">Mother</span>
-                  </div>
+            </div>
+            <div
+              class="col-md d-flex justify-content-center counter-wrap ftco-animate"
+            >
+              <div class="block-18">
+                <div class="icon"><span class="flaticon-doctor"></span></div>
+                <div class="text">
+                  <strong
+                    class="number"
+                    data-number="{{ school_info.total_transportation_vehicles }}"
+                    >0</strong
+                  >
+                  <span>Transport Vehicles</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-		<section class="ftco-gallery">
-    	<div class="container-wrap">
-    		<div class="row no-gutters">
-					<div class="col-md-3 ftco-animate">
-						<a href="images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/course-1.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/image_2.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="images/image_3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/image_3.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="images/image_4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/image_4.jpg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
+    </div>
+</section>
+
+  <br />
+  <br>
+
+  <section class="ftco-services ftco-no-pb">
+    <div class="container-wrap">
+      <div class="row no-gutters">
+        <div
+          class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken"
+        >
+          <div class="media block-6 d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <span class="flaticon-teacher"></span>
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Certified Teachers</h3>
+              <p>
+                Our certified teachers offer expert guidance and personalized support, ensuring effective student learning.
+              </p>
+            </div>
+          </div>
         </div>
-    	</div>
-    </section>
+        <div
+          class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken"
+        >
+          <div class="media block-6 d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <span class="flaticon-reading"></span>
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Special Education</h3>
+              <p>
+                "Our special education program offers tailored support to ensure every student can thrive."
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken"
+        >
+          <div class="media block-6 d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <span class="flaticon-books"></span>
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Book &amp; Library</h3>
+              <p>
+                Our library provides a diverse collection of books and resources to foster a love for reading.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate bg-darken"
+        >
+          <div class="media block-6 d-block text-center">
+            <div class="icon d-flex justify-content-center align-items-center">
+              <span class="flaticon-diploma"></span>
+            </div>
+            <div class="media-body p-2 mt-3">
+              <h3 class="heading">Sport Clubs</h3>
+              <p>
+                Our sports club fosters teamwork and skill development through diverse activities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br /> <br>
 
-		
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-6 col-lg-3">
-            <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
+  <section class="ftco-principal-message ftco-no-pb">
+    <div class="container">
+        <div class="row no-gutters">
+            <!-- Principal Image Container -->
+            <div class="col-md-4 d-flex align-items-center justify-content-center bg-light" id="principalImageContainer">
+                <div class="image-container ftco-animate" style="text-align: center; max-width: 80%; margin: auto;">
+                    {% if management.principal_image %}
+                        <img src="{{ management.principal_image.url }}" class="img-fluid" alt="Principal Image" style="max-width: 100%; height:auto;">
+                    {% else %}
+                        <img src="{% static 'images/default_principal_image.png' %}" class="img-fluid" alt="Default Principal Image">
+                    {% endif %}
+                    <p class="mt-2"><strong>{{ management.our_principal }}</strong></p>
+                  
+                </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="ftco-footer-widget mb-5">
-              <h2 class="ftco-heading-2">Recent Blog</h2>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> June 27, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+            <!-- Principal Message Content -->
+            <div class="col-md-8 d-flex align-self-stretch py-2 px-4 ftco-animate bg-light" id="principalContentContainer">
+              <div class="text py-5 px-4">
+                  <h2 class="heading">Principal's Message</h2>
+                  <div class="mb-3">
+                      <p id="principalMessage">
+                          <span id="truncatedMessage">{{ management.principal_message|truncatechars:577|safe }}</span>
+                          <span id="dots"></span>
+                      </p>
+                      <a href="{% url 'principal_message_detail' %}" class="btn btn-primary">Read more</a>
                   </div>
-                </div>
+                  
               </div>
-              <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> June 27, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="ftco-footer-widget mb-5 ml-md-4">
-              <h2 class="ftco-heading-2">Links</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
-              </ul>
-            </div>
+          
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+  <div class="container-fluid px-4">
+    <div class="row justify-content-center mb-5 pb-2">
+      <div class="col-md-8 text-center heading-section ftco-animate">
+        <h2 class="mb-4">Our Team</h2>
+        <p>
+          Meet our dedicated team of educators who are committed to providing quality education and nurturing the potential of every student.
+        </p>
+      </div>
+    </div>
+    <div class="row owl-carousel owl-theme">
+      {% for teacher in teachers %}
+      <div class="col-md-12 col-lg-3 ftco-animate">
+        <div class="staff" style="width: 300px; margin: 0 auto;">
+          <div class="img-wrap d-flex justify-content-center">
+            <img
+              src="{{ teacher.image.url }}"
+              alt="{{ teacher.name }}"
+              class="img-fluid"
+              style="max-width: 100%; height: auto; object-fit: cover;"
+            />
           </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Subscribe Us!</h2>
-              <form action="#" class="subscribe-form">
-                <div class="form-group">
-                  <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
-                  <input type="submit" value="Subscribe" class="form-control submit px-3">
-                </div>
-              </form>
-            </div>
-            <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
-            	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+          <div class="text pt-3 text-center">
+            <h3>{{ teacher.name }}</h3>
+            <span class="position mb-2">Teacher</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-lg-4">
+          <div class="ftco-footer-widget mb-5">
+            <h2 class="ftco-heading-2">Contact Us</h2>
+            <div class="block-23 mb-3">
+              <ul>
+                <li>
+                  <span class="icon icon-map-marker"></span
+                  ><span class="text">
+                    KOCHARA P.O, CHETTUKUZHY, PIN: 685551, IDUKKI DISTRICT</span
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span class="icon icon-phone"></span
+                    ><span class="text"> {{school_info.phone}}</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><span class="icon icon-envelope"></span
+                    ><span class="text ml-4">
+                      {{school_info.email}}</span
+                    ></a
+                  >
+                </li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <div class="col-md-6 col-lg-4">
+          <div class="ftco-footer-widget mb-5 ml-md-4">
+            <h2 class="ftco-heading-2">Links</h2>
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'index' %}"
+                  ><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a
+                >
+              </li>
+              <li>
+                <a href="{% url "about_us" %}"
+                  ><span class="ion-ios-arrow-round-forward mr-2"></span
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="{% url "staffs" %}"
+                  ><span class="ion-ios-arrow-round-forward mr-2"></span
+                  >Faculty</a
+                >
+              </li>
+              <li>
+                <a href="{% url "gallery" %}"
+                  ><span class="ion-ios-arrow-round-forward mr-2"></span
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a href="{% url "contact" %}"
+                  ><span class="ion-ios-arrow-round-forward mr-2"></span
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="{% url "admin_login" %}"
+                  ><span class="ion-ios-arrow-round-forward mr-2"></span
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="ftco-footer-widget mb-5">
+            <h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
+            <ul
+              class="ftco-footer-social list-unstyled float-md-left float-lft mt-3"
+            >
+              <li class="ftco-animate">
+                <a href="{{school_info.youtube_link}}"><span class="icon-youtube"></span></a>
+              </li>
+              <li class="ftco-animate">
+                <a href="{{school_info.facebook_link}}"><span class="icon-facebook"></span></a>
+              </li>
+              <li class="ftco-animate">
+                <a href="#"><span class="icon-instagram"></span></a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </footer>
-    
-  
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            All rights reserved 
+            <div>
+              <small>
+                <small>This template is made with
+                  <i class="icon-heart" aria-hidden="true"></i> by
+                  <a href="https://colorlib.com" target="_blank">Colorlib</a></small>
+              </small>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+      <circle
+        class="path-bg"
+        cx="24"
+        cy="24"
+        r="22"
+        fill="none"
+        stroke-width="4"
+        stroke="#eeeeee"
+      />
+      <circle
+        class="path"
+        cx="24"
+        cy="24"
+        r="22"
+        fill="none"
+        stroke-width="4"
+        stroke-miterlimit="10"
+        stroke="#F96D00"
+      />
+    </svg>
+  </div>
 
   <script>
-	document.querySelectorAll('.list-group-item').forEach(item => {
-	  item.addEventListener('mouseover', () => {
-		item.style.transform = 'translateY(-5px)';
-		item.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-	  });
-	  item.addEventListener('mouseout', () => {
-		item.style.transform = 'translateY(0)';
-		item.style.boxShadow = 'none';
-	  });
-	});
+    document.querySelectorAll(".list-group-item").forEach((item) => {
+      item.addEventListener("mouseover", () => {
+        item.style.transform = "translateY(-5px)";
+        item.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+      });
+      item.addEventListener("mouseout", () => {
+        item.style.transform = "translateY(0)";
+        item.style.boxShadow = "none";
+      });
+    });
   </script>
+  
+  <script>
+function toggleMessage() {
+    const dots = document.getElementById("dots");
+    const fullMessage = document.getElementById("fullMessage");
+    const truncatedMessage = document.getElementById("truncatedMessage");
+    const btnText = document.getElementById("readMoreBtn");
 
+    if (fullMessage.style.display === "none") {
+        fullMessage.style.display = "inline";
+        dots.style.display = "none";
+        truncatedMessage.style.display = "none";
+        btnText.innerHTML = "Read less";
+    } else {
+        fullMessage.style.display = "none";
+        dots.style.display = "inline";
+        truncatedMessage.style.display = "inline";
+        btnText.innerHTML = "Read more";
+    }
+}
 </script>
+    
+
   <script src="{% static 'js/jquery.min.js' %}"></script>
   <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
   <script src="{% static 'js/popper.min.js' %}"></script>
@@ -615,31 +621,37 @@
   <script src="{% static 'js/main.js' %}"></script>
 
   <script>
-	$(document).ready(function(){
-	  $('.owl-carousel').owlCarousel({
-		loop: true,
-		margin: 0,
-		nav: true,
-		dots: true,
-		autoplay: true,
-		autoplayTimeout: 2000,
-		responsive: {
-		  0: {
-			items: 1
-		  },
-		  600: {
-			items: 2
-		  },
-		  1000: {
-			items: 4
-		  }
-		}
-	  });
-	});
+    $(window).on("load", function () {
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 4,
+          },
+        },
+      });
+    });
   </script>
 
-
-
+  <script>
+    $(document).ready(function () {
+      $(".number").counterUp({
+        delay: 5,
+        time: 1000,
+      });
+    });
+  </script>
 </html>
 
 {% endblock content %}

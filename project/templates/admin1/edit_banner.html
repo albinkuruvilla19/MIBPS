@@ -1,0 +1,75 @@
+{% extends "admin1/admin_base.html" %}
+{% load static %}
+{% block content %}
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<style>
+    .portfolio-item .item .delete-icon {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: none;
+        color: white;
+        background-color: rgba(225, 20, 20, 0.608);
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-sizing: border-box;
+    }
+
+    .portfolio-item .item:hover .delete-icon {
+        display: block;
+    }
+
+    .image-container {
+        position: relative;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4" style="margin-left: -50px;">
+            <a href="{% url 'add_banner' %}">
+                <button class="btn btn-primary mx-5 my-5" style="width: 100%;">Add New Banner Image</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="portfolio-item row">
+        {% for banner in banners %}
+        <div class="col-lg-3 col-md-4 col-6 col-sm item">
+            <div class="image-container">
+                <a href="{{ banner.image.url }}" class="fancylight popup-btn">
+                    <img class="img-fluid" src="{{ banner.image.url }}" alt="{{ banner.image.title }}">
+                </a>
+                <a href="{% url 'delete_banner' banner.pk %}">
+                    <div class="delete-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var popup_btn = $('.popup-btn');
+        popup_btn.magnificPopup({
+            type : 'image',
+            gallery : {
+                enabled : true
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

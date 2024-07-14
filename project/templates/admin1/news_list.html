@@ -14,15 +14,12 @@
     <a href="{% url 'add_news' %}"><button class="btn btn-primary mx-5 my-5">Add News and Events</button> </a>
 
     <div class="col-12">
-        <div class="bg-light rounded h-100 p-4">
+        <div class="bg-light rounded  p-4">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Heading</th>
-                            <th scope="col">Content 1</th>
-                            <th scope="col">Content 2</th>
+                            <th scope="col">News Heading</th>
                             <th scope="col">Published Date</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
@@ -31,10 +28,8 @@
                     <tbody>
                         {% for item in news %}
                         <tr>
-                            <th scope="row">{{item.id}}</th>
+                            
                             <td>{{item.title}}</td>
-                            <td>{{item.content1}}</td>
-                            <td>{{item.content2}}</td>
                             <td>{{ item.published_date }}</td>
                             <td>
                                 <a href="{% url 'edit_news' item.pk %}">Edit</a>

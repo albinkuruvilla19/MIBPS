@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import AbstractUser
 
 class Staff(models.Model):
     name = models.CharField(max_length=100)
@@ -9,16 +11,21 @@ class Staff(models.Model):
     address_line1 = models.CharField(max_length=255, blank=True, null=True)
     address_line2 = models.CharField(max_length=255, blank=True, null=True)
 
+    @classmethod
+    def count_teaching_staff(cls):
+        return cls.objects.filter(teaching_staff=True).count()
+
+    @classmethod
+    def count_non_teaching_staff(cls):
+        return cls.objects.filter(teaching_staff=False).count()
+
 
     def __str__(self):
         return self.name
 
 class NewsNEvents(models.Model):
     title = models.CharField(max_length=200)
-    content1 = models.TextField()
-    content2 = models.TextField(blank=True,null=True)
     published_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='news_images/', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -27,6 +34,10 @@ class SchoolInfo(models.Model):
     name = models.CharField(max_length=200)
     logo = models.ImageField(upload_to='school_logos/', blank=True, null=True)
     email = models.EmailField(max_length=254, blank=True, null=True)
+    total_students = models.PositiveIntegerField(blank=True, null=True)
+    total_transportation_vehicles = models.PositiveIntegerField(blank=True, null=True)
+    total_classrooms = models.PositiveIntegerField(blank=True, null=True)
+
     phone = models.CharField(max_length=100, blank=True, null=True)
     address_line1 = models.CharField(max_length=255, blank=True, null=True)
     address_line2 = models.CharField(max_length=255, blank=True, null=True)
@@ -38,63 +49,13 @@ class SchoolInfo(models.Model):
         return self.name
     
 
-
-class Class(models.Model):
-    name = models.CharField(max_length=100)
-    class_teacher = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True, blank=True)
-    students = models.ManyToManyField('Student', related_name='classes', blank=True)
+class BannerImage(models.Model):
+    image = models.ImageField(upload_to='banner_images/')
+    upload_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
-    
-    def student_count(self):
-        return self.students.count()
+        return self.title or f"Banner Image {self.id}"
 
-
-class Student(models.Model):
-    GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('O', 'Other'),
-    ]
-
-    BLOOD_GROUP_CHOICES = [
-        ('A+', 'A+'),
-        ('A-', 'A-'),
-        ('B+', 'B+'),
-        ('B-', 'B-'),
-        ('AB+', 'AB+'),
-        ('AB-', 'AB-'),
-        ('O+', 'O+'),
-        ('O-', 'O-'),
-    ]
-
-    admission_no = models.CharField(max_length=20, unique=True)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    date_of_birth = models.DateField()
-    blood_group = models.CharField(max_length=3, choices=BLOOD_GROUP_CHOICES, blank=True, null=True)
-    religion = models.CharField(max_length=50, blank=True, null=True)
-    email = models.EmailField(max_length=254, blank=True, null=True)
-    phone = models.CharField(max_length=100, blank=True, null=True)
-    address_line1 = models.CharField(max_length=255, blank=True, null=True)
-    address_line2 = models.CharField(max_length=255, blank=True, null=True)
-    profile_picture = models.ImageField(upload_to='student_images/', blank=True, null=True)
-    father_name = models.CharField(max_length=100)
-    father_occupation = models.CharField(max_length=100, blank=True, null=True)
-    father_phone = models.CharField(max_length=100, blank=True, null=True)
-    mother_name = models.CharField(max_length=100)
-    mother_occupation = models.CharField(max_length=100, blank=True, null=True)
-    mother_phone = models.CharField(max_length=100, blank=True, null=True)
-    
-
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-    
-
-
-from django.db import models
 
 class MandatoryDisclosure(models.Model):
     # Basic school details
@@ -144,3 +105,51 @@ class MandatoryDisclosure(models.Model):
 
     def __str__(self):
         return self.name_of_school
+
+
+class Facility(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='facility_images/', blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+    
+
+class Album(models.Model):
+    title = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+    
+
+class Image(models.Model):
+    album = models.ForeignKey(Album, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='gallery_images/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
+class AboutSchool(models.Model):
+    about_us = models.TextField()
+    our_mission = models.TextField()
+    our_vision = models.TextField()
+    
+
+
+
+class Management(models.Model):
+    our_principal = models.CharField(max_length=100, blank=True, null=True)
+    principal_image = models.ImageField(upload_to='images/', blank=True, null=True)
+    principal_message = RichTextUploadingField(blank=True, null=True)  # New field for principal's message
+    our_finance_manager = models.CharField(max_length=100, blank=True, null=True)
+    finance_manager_image = models.ImageField(upload_to='images/', blank=True, null=True)
+    our_local_manager = models.CharField(max_length=100, blank=True, null=True)
+    local_manager_image = models.ImageField(upload_to='images/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.our_principal or 'No Principal'}, {self.our_finance_manager or 'No Finance Manager'}, {self.our_local_manager or 'No Local Manager'}"
+
+
+    

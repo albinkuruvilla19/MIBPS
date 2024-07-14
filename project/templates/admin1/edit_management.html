@@ -1,0 +1,30 @@
+{% extends "admin1/admin_base.html" %}
+{% block content %}
+{% load static %}
+<script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Management</title>
+</head>
+<body>
+    <h2 class="mx-5 mt-4">Edit Management Details</h2>
+    <div class="container">
+
+        
+        <br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        <button type="submit">Update</button>
+    </form>
+
+    </div>
+    
+</body>
+</html>
+{% endblock %}

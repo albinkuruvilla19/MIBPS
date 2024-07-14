@@ -1,0 +1,43 @@
+{% extends "admin1/admin_base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+</head>
+<body>
+    <br>
+    <h2 class="mx-5">Albums</h2>
+
+    <div class="col-12">
+        <div class="bg-light rounded p-4">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">title</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in albums %}
+                        <tr>
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.title}}</td>
+
+                            <td>
+                                <a href="{% url 'delete_album' item.pk %}">
+                                    <button class="btn btn-danger">Delete</button>
+                                </a>
+                            </td>
+                        </tr>{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

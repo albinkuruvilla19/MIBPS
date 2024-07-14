@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .portfolio-menu {
+        text-align: center;
+    }
+    .portfolio-menu ul li {
+        display: inline-block;
+        margin: 0;
+        list-style: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+    .portfolio-item .item {
+        position: relative;
+        float: left;
+        margin-bottom: 10px;
+        overflow: hidden;
+        width: 100%;
+        padding: 10px;
+        transition: transform 0.3s;
+    }
+
+    .portfolio-item .item:hover img {
+        transform: scale(1.1); /* Scale up slightly on hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+        filter: saturate(120%); /* Increase saturation */
+    }
+    
+    .portfolio-item .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s, box-shadow 0.3s, filter 0.3s; /* Smooth transition */
+    }
+    .hidden {
+        display: none;
+    }
+    @media (min-width: 576px) {
+        .portfolio-item .item {
+            width: 50%;
+        }
+    }
+    @media (min-width: 768px) {
+        .portfolio-item .item {
+            width: 33.33%;
+        }
+    }
+    @media (min-width: 992px) {
+        .portfolio-item .item {
+            width: 25%;
+        }
+    }
+</style>
+
+
+
+</br>
+<div class="container">
+    <div class="portfolio-menu mt-2 mb-4">
+        <ul>
+            <li class="btn btn-outline-dark active" data-filter="*">All</li>
+            {% for album in albums %}
+                <li class="btn btn-outline-dark" data-filter=".album{{ album.id }}">{{ album.title }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="portfolio-item row">
+        {% for image in images %}
+            <div class="item album{{ image.album.id }} col-lg-3 col-md-4 col-6 col-sm">
+                <a href="{{ image.image.url }}" class="fancylight popup-btn" data-fancybox-group="light">
+                    <img class="img-fluid" src="{{ image.image.url }}" alt="{{ image.title }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    $('.portfolio-menu ul li').click(function(){
+        $('.portfolio-menu ul li').removeClass('active');
+        $(this).addClass('active');
+
+        var selector = $(this).attr('data-filter');
+        $('.portfolio-item').isotope({
+            filter: selector
+        });
+        return false;
+    });
+
+    $(document).ready(function() {
+        var popup_btn = $('.popup-btn');
+        popup_btn.magnificPopup({
+            type : 'image',
+            gallery : {
+                enabled : true
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

@@ -1,10 +1,11 @@
 from django import forms
-from .models import NewsNEvents,Staff,SchoolInfo,MandatoryDisclosure
+from .models import *
+from ckeditor.widgets import CKEditorWidget
 
 class NewsNEventsForm(forms.ModelForm):
     class Meta:
         model = NewsNEvents
-        fields = ['title', 'content1', 'content2', 'image']
+        fields = ['title']
 
 
 class StaffForm(forms.ModelForm):
@@ -46,3 +47,46 @@ class InfrastructureForm(forms.ModelForm):
     class Meta:
         model = MandatoryDisclosure
         fields = ['total_campus_area', 'no_and_size_of_classrooms', 'no_and_size_of_laboratories', 'internet_facility', 'no_of_girls_toilets', 'no_of_boys_toilets', 'youtube_link_of_inspection_video']
+
+
+class FacilityForm(forms.ModelForm):
+    class Meta:
+        model = Facility
+        fields = '__all__'
+
+
+class AlbumForm(forms.ModelForm):
+    class Meta:
+        model = Album
+        fields = '__all__'
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = '__all__'
+
+class AboutSchoolForm(forms.ModelForm):
+    class Meta:
+        model = AboutSchool
+        fields = '__all__'
+
+
+
+
+
+
+class ManagementForm(forms.ModelForm):
+    principal_message = forms.CharField(widget=CKEditorWidget(), label='Principal Message')
+
+    class Meta:
+        model = Management
+        fields = '__all__'
+
+class BannerForm(forms.ModelForm):
+    class Meta:
+        model = BannerImage
+        fields = '__all__'
+
+class AdminLoginForm(forms.Form):
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(widget=forms.PasswordInput)

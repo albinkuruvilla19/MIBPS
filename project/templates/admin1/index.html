@@ -58,7 +58,7 @@
                             <i class="fa fa-child fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Total Students</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <h6 class="mb-0">{{ school_info.total_students }}</h6>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
 
                             <div class="ms-3">
                                 <p class="mb-2">Teaching Staffs</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <h6 class="mb-0">{{ teaching_count }}</h6>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <i class="fas fa-user-tie fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Non-Teaching Staffs</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <h6 class="mb-0">{{ non_teaching_count }}</h6>
                             </div>
                         </div>
                     </div>
@@ -85,8 +85,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fas fa-bus fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Transportation</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Transportation Vehicles</p>
+                                <h6 class="mb-0">{{ school_info.total_transportation_vehicles }}</h6>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,6 @@
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
                             </div>
                             <div id="calender"></div>
                         </div>
@@ -114,17 +113,19 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">Name</th>
-                    <th scope="col">Teaching Staff</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Teaching Staff</th>
                 </tr>
             </thead>
             <tbody>
                 {% for teacher in teachers %}
     <tr>
-        <th scope="row">{{ teacher.id }}</th>
         <td>{{ teacher.name }}</td>
+        <td>{{ teacher.phone }}</td>
+        <td>{{ teacher.email }}</td>
         <td>
             {% if teacher.teaching_staff %}
                 &#x2705; <!-- Green tick symbol -->
@@ -132,7 +133,6 @@
                 &#x274C; <!-- Cross symbol -->
             {% endif %}
         </td>
-        <td>{{ teacher.email }}</td>
     </tr>
 {% endfor %}
             </tbody>
@@ -145,40 +145,6 @@
             <!-- Sales Chart End -->
 
 
-            <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Class Teachers</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Class</th>
-                                    <th scope="col">Strength</th>
-                                    <th scope="col">Assigned Teacher</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for class in classes %}
-                                <tr>
-                                    
-                                    <td>{{class.name}}</td>
-                                    <td>{{class.student_count}}</td>
-                                    <td>{{class.class_teacher}}</td>
-                                    
-                                    <td><a class="btn btn-sm btn-primary" href="">Update</a></td>
-                                </tr>{% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Sales End -->
-
 
 
 
@@ -187,11 +153,11 @@
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a href="#">MIBPS</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            <small>Designed By <a href="https://htmlcodex.com">HTML Codex</a></small>
                         </br>
                         <small>Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a></small>
                         </div>

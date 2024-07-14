@@ -55,9 +55,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  
   text-align: left;
-  background-color: #fff; }
+ }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -1552,6 +1552,9 @@ pre {
     -webkit-overflow-scrolling: touch; }
     .table-responsive-sm > .table-bordered {
       border: 0; } }
+
+      
+
 
 @media (max-width: 767.98px) {
   .table-responsive-md {

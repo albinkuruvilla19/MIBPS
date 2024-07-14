@@ -22,6 +22,38 @@
     <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+	<style>
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-menu.ftco-animated.slideInDown {
+            animation: slideInDown 0.5s ease-in-out;
+        }
+		
+@media (min-width: 992px) { /* Adjust as necessary for your breakpoint */
+    .custom-margin {
+        margin-left: 65px;
+    }
+}
+
+@media (max-width: 991.98px) { /* Adjust as necessary for your breakpoint */
+    .custom-margin {
+        margin-left: 0; /* Remove left margin for smaller screens */
+    }
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+    </style>
+
   </head>
 
   <body>
@@ -29,29 +61,29 @@
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-center align-items-stretch">
     			<div class="col-md-4 d-flex align-items-center py-4">
-    				<a class="navbar-brand" href="index.html"><img src="{{info.logo.url}}" style="width: 50px;" alt=""></span></a>
+    				<a class="navbar-brand" href="{% url "index" %}"><img src="{{school_info.logo.url}}" style="width: 50px;" alt=""></span></a>
 					<span><strong>Mar Ivanios Bethany Public School</strong></span>
     			</div>
 				
 	    		<div class="col-lg-8 d-block">
 		    		<div class="row d-flex">
-					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4" style="margin-left: 65px;">
+					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4 custom-margin">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
 					    	<div class="text">
 					    		<span>Email</span>
-						    	<span>bethanychettukuzhy@hotmail.com</span>
+						    	<span>{{school_info.email}}</span>
 						    </div>
 					    </div>
 					    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    	<div class="icon d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
 						    <div class="text">
 						    	<span>Call</span>
-						    	<span>+ 1235 2355 98</span>
+						    	<span>+91 {{school_info.phone}}</span>
 						    </div>
 					    </div>
 					    <div class="col-md topper d-flex align-items-center justify-content-end">
 					    	<p class="mb-0">
-					    		<a href="#" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">
+					    		<a href="{% url "view" %}" class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center">
 					    			<span>Log in</span>
 					    		</a>
 					    	</p>
@@ -67,14 +99,34 @@
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav mr-auto">
-	        	<li class="nav-item active"><a href="{% url "index" %}" class="nav-link pl-0">Home</a></li>
+	      <div class="collapse navbar-collapse justify-content-center" id="ftco-nav">
+	        <ul class="navbar-nav">
+	        	<li class="nav-item"><a href="{% url "index" %}" class="nav-link pl-0">Home</a></li>
 	        	<li class="nav-item"><a href="{% url "about_us" %}" class="nav-link">About Us</a></li>
-	        	<li class="nav-item"><a href="{% url "mandatory_disclosure" %}" class="nav-link">Mandatory Disclosure</a></li>
-	        	<li class="nav-item"><a href="teacher.html" class="nav-link">Staff</a></li>
-	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        	<li class="nav-item active"><a href="{% url "mandatory_disclosure" %}" class="nav-link">Mandatory Disclosure</a></li>
+	        	<li class="nav-item"><a href="{% url "staffs" %}" class="nav-link">Faculty</a></li>
+	        	<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Campus
+					</a>
+					<div class="dropdown-menu ftco-animated slideInDown" 
+						 aria-labelledby="navbarDropdown" 
+						 style="margin-top: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); padding: 15px; min-width: 200px;">
+						<a class="dropdown-item" href="{% url 'facility' %}" style="font-size: 16px; padding: 10px 15px;"
+						   onmouseover="this.style.backgroundColor='#007bff'; this.style.color='#ffffff';"
+						   onmouseout="this.style.backgroundColor=''; this.style.color='';">
+						   Facilities
+						</a>
+						<a class="dropdown-item" href="{% url 'gallery' %}" style="font-size: 16px; padding: 10px 15px;"
+						   onmouseover="this.style.backgroundColor='#007bff'; this.style.color='#ffffff';"
+						   onmouseout="this.style.backgroundColor=''; this.style.color='';">
+						   Gallery
+						</a>
+					</div>
+				</li>
+				
+				<li class="nav-item"><a href="{% url "management" %}" class="nav-link">Management</a></li>
+	          <li class="nav-item"><a href="{% url "contact" %}" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -82,4 +134,8 @@
     <!-- END nav -->
 
     {% block content %}{% endblock content %}
+	
   </body>
+  
+
+  
