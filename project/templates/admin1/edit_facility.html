@@ -16,7 +16,10 @@
         {% csrf_token %}
         {% load crispy_forms_tags %}
         {{ form|crispy }}
-        <button type="submit">Update</button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary w-50">Update</button>
+        </div>
+        <br><br>
     </form>
 
     </div>

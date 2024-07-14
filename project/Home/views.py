@@ -331,7 +331,6 @@ def delete_banner(request, pk):
 
 def principal_message(request):
     management = Management.objects.first()
-    print(management.our_principal, management.principal_message) 
     return render(request,'principal_message.html',{"management":management})
 
 

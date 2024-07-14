@@ -2,15 +2,13 @@
 {% load static %}
 {% block content %}
 
-<section class="hero-wrap hero-wrap-2" style="background-image:url('{% static 'images/video.png' %}');>
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row no-gutters slider-text align-items-center justify-content-center">
-        <h1 class="text-white" style="font-weight: 900;font-size: 60px;">CONTACT US</h1>
-      </div>
+<section class="hero-wrap hero-wrap-2" style="background-image:url('{% static 'images/video.png' %}');">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <h1 class="text-white" style="font-weight: 900;font-size: 60px;">CONTACT US</h1>
     </div>
-  </section>
-
+  </div>
+</section>
 
 <section class="ftco-section contact-section">
   <div class="container">
@@ -28,17 +26,16 @@
         </div>
       </div>
       <div class="col-md-4 d-flex">
-  <div class="bg-light align-self-stretch box p-4 text-center">
-    <h3 class="mb-4">Email Address</h3>
-    <p class="text-truncate">{{school_info.email}}</p>
-  </div>
-</div>
-
+        <div class="bg-light align-self-stretch box p-4 text-center">
+          <h3 class="mb-4">Email Address</h3>
+          <p class="text-truncate">{{school_info.email}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-
+{% include "inc/footer.html" %}
 
 
 <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -53,8 +50,9 @@
   <script src="{% static 'js/aos.js' %}"></script>
   <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
   <script src="{% static 'js/scrollax.min.js' %}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{% static 'js/google-map.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
 
+  
+
+  
 {% endblock content %}
