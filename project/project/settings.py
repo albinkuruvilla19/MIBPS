@@ -153,6 +153,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.mibps.in',
 ]
 
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True  # Only set this if you're using HTTPS
+SESSION_COOKIE_SECURE = True 
