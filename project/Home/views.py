@@ -334,8 +334,7 @@ def principal_message(request):
     return render(request,'principal_message.html',{"management":management})
 
 
-from django.views.decorators.csrf import csrf_exempt
-@csrf_exempt
+
 def ad_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
