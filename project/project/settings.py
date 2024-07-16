@@ -152,3 +152,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://mibps.in',
     'https://www.mibps.in',
 ]
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
