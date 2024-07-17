@@ -388,7 +388,13 @@
           </div>
           <div class="text pt-3 text-center">
             <h3>{{ teacher.name }}</h3>
+            {% if teacher.teaching_staff %}
             <span class="position mb-2">Teacher</span>
+            {% else %}
+            <span class="position mb-2">Accountant</span>
+            {% endif %}
+
+            
           </div>
         </div>
       </div>
