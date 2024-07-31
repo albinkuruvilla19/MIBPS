@@ -90,7 +90,7 @@ class MandatoryDisclosure(models.Model):
     pgt_teachers = models.IntegerField()
     tgt_teachers = models.IntegerField()
     prt_teachers = models.IntegerField()
-    teachers_section_ratio = models.FloatField()
+    teachers_section_ratio = models.CharField(max_length=255,null=True,blank=True)
     details_of_special_educator = models.TextField()
     details_of_counsellor_and_wellness_teacher = models.TextField()
 
