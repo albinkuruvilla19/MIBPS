@@ -155,9 +155,7 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 #     'https://www.mibps.in',
 # ]
 
-CSRF_TRUSTED_ORIGINS = [
-     '*'
- ]
+CSRF_TRUSTED_ORIGINS = [""]
 
 CSRF_COOKIE_SECURE = True  # Only set this if you're using HTTPS
 SESSION_COOKIE_SECURE = True 
