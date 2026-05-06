@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+import dj_database_url
 
 
 
@@ -31,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','www.mibps.in','mibps.onrender.com']
+ALLOWED_HOSTS = ['.vercel.app','www.mibps.in','mibps.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap4",
     "ckeditor",
+    'cloudinary',
+    'cloudinary_storage'
 ]
 
 MIDDLEWARE = [
@@ -85,11 +88,19 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
@@ -140,7 +151,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
 STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -157,6 +168,6 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 # CSRF_TRUSTED_ORIGINS = [""]
 
-CSRF_COOKIE_SECURE = True  # Only set this if you're using HTTPS
+CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

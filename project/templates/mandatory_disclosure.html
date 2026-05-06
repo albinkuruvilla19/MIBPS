@@ -62,8 +62,8 @@
                         <td>	
                             Copies of Affiliation/Upgradation letter and recent
                             Extension of Affiliation, if any</td>
-                        <td>{% if content.copies_od_affiliation_letter %}
-                            &#x2705; <!-- Green tick symbol -->
+                        <td>{% if content.copies_of_affiliation_letter %}
+                            <a href="{{ content.copies_of_affiliation_letter.url }}" download>Download File</a>
                         {% else %}
                             &#x274C; <!-- Cross symbol -->
                         {% endif %}</td>
